@@ -13,8 +13,9 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="start" options="-parameters" />
-      <module name="web" options="-parameters" />
+      <module name="rbac" options="" />
+      <module name="start" options="" />
+      <module name="web" options="" />
     </option>
   </component>
 </project>
