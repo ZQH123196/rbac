@@ -7,7 +7,6 @@ import lombok.Data;
 @Data
 @TableName("user")
 public class UserDO {
-    @TableId
     String name;
     String password;
     String admdivcode;

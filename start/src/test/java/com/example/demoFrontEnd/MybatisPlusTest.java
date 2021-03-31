@@ -15,7 +15,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
 import javax.sql.DataSource;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -24,21 +26,11 @@ public class MybatisPlusTest {
     @Resource
     private UserMapper userMapper;
 
-    @Autowired
-    private DataSource dataSource;
 
     @Test
-    public void testUserSelect() {
-        System.out.println(("----- selectAll method test ------"));
-        List<UserDO> userList = userMapper.selectList(null);
-
-        Assert.assertEquals(true, userList.size() > 0);
-        userList.forEach(System.out::println);
-    }
-
-    @Test
-    public void testUserInsert() {
-        int updateNum = userMapper.insert(
+    public void testUserCRUD() {
+        // insert
+        int insertNum = userMapper.insert(
                 new UserDO(){{
                     setAdmdivcode("10086");
                     setName("移动");
@@ -46,29 +38,40 @@ public class MybatisPlusTest {
                     setLocalRolePermission("admin");
                 }}
         );
+        log.info("insertNum={}", insertNum);
 
-        Assert.assertTrue(updateNum == 1);
-        log.info("updateNum={}", updateNum);
-    }
+        // select
+        List<UserDO> userList = userMapper.selectList(null);
+        userList.forEach(System.out::println);
 
-    @Test
-    public void testUserDelect() {
-        int deleteNum = userMapper.delete(new QueryWrapper<UserDO>().eq("name", "移动"));
-
-        log.info("deleteNum={}", deleteNum);
-    }
-
-    @Test
-    public void testUserUpdate() {
+        // update
         int updateNum = userMapper.update(
                 new UserDO() {{
                     setLocalRolePermission("a piese of shit!");
                 }},
                 new QueryWrapper<UserDO>().eq("name", "移动")
         );
-
         log.info("updateNum={}", updateNum);
+
+        // delect
+        int deleteNum = userMapper.delete(new QueryWrapper<UserDO>().eq("name", "移动"));
+        log.info("deleteNum={}", deleteNum);
     }
+
+
+    @Test
+    public void testQueryUserByMap() {
+        Map<String, Object> queryMap = new HashMap<String, Object>(){{
+            put("name", "eor");
+            put("admdivcode", "440900");
+        }};
+
+//        UserDO user = userMapper.selectOne(new QueryWrapper<UserDO>().allEq(queryMap));
+        List<UserDO> user =  userMapper.selectByMap(queryMap);
+
+        log.info("user=[{}]", user);
+    }
+
 }
 
 

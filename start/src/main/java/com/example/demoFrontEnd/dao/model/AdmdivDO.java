@@ -8,3 +8,7 @@ public class AdmdivDO {
     String page_permission;
     String role_permission;
 }
+
+
+
+
