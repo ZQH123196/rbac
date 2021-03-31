@@ -1,4 +1,4 @@
-package com.example.demoFrontEnd.dao.model;
+package com.example.rbac.dao.model;
 
 public class UserDOTest {
     private Integer userId;

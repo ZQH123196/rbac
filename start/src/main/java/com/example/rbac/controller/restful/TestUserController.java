@@ -1,6 +1,6 @@
-package com.example.demoFrontEnd.controller.restful;
+package com.example.rbac.controller.restful;
 
-import com.example.demoFrontEnd.dao.model.UserDOTest;
+import com.example.rbac.dao.model.UserDOTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 

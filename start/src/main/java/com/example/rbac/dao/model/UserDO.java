@@ -1,6 +1,5 @@
-package com.example.demoFrontEnd.dao.model;
+package com.example.rbac.dao.model;
 
-import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
 

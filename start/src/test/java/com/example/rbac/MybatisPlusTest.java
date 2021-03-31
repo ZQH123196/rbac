@@ -1,20 +1,15 @@
-package com.example.demoFrontEnd;
+package com.example.rbac;
 
-import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.baomidou.mybatisplus.core.conditions.segments.MergeSegments;
-import com.example.demoFrontEnd.dao.UserMapper;
-import com.example.demoFrontEnd.dao.model.UserDO;
+import com.example.rbac.dao.UserMapper;
+import com.example.rbac.dao.model.UserDO;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.annotation.Resource;
-import javax.sql.DataSource;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;

@@ -1,7 +1,7 @@
-package com.example.demoFrontEnd.dao;
+package com.example.rbac.dao;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.example.demoFrontEnd.dao.model.UserDO;
+import com.example.rbac.dao.model.UserDO;
 
 public interface UserMapper extends BaseMapper<UserDO> {
 

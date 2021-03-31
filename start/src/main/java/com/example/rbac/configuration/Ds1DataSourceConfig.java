@@ -1,10 +1,8 @@
-package com.example.demoFrontEnd.configuration;
+package com.example.rbac.configuration;
 
-import com.baomidou.mybatisplus.annotation.DbType;
 import com.baomidou.mybatisplus.core.MybatisConfiguration;
 import com.baomidou.mybatisplus.core.config.GlobalConfig;
 import com.baomidou.mybatisplus.extension.spring.MybatisSqlSessionFactoryBean;
-import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
 import org.apache.ibatis.session.SqlSessionFactory;
 import org.apache.ibatis.type.JdbcType;
 import org.mybatis.spring.annotation.MapperScan;
@@ -21,7 +19,7 @@ import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 import javax.sql.DataSource;
 
 @Configuration
-@MapperScan(basePackages = {"com.example.demoFrontEnd.**.dao"},
+@MapperScan(basePackages = {"com.example.rbac.**.dao"},
         sqlSessionFactoryRef = "ds1-SqlSessionFactory")
 public class Ds1DataSourceConfig {
 

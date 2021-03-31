@@ -1,14 +1,12 @@
-package com.example.demoFrontEnd.controller.restful;
+package com.example.rbac.controller.restful;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
-import com.example.demoFrontEnd.dao.UserMapper;
-import com.example.demoFrontEnd.dao.model.UserDO;
+import com.example.rbac.dao.UserMapper;
+import com.example.rbac.dao.model.UserDO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
-import javax.annotation.Resource;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -43,7 +41,7 @@ public class UserController {
             @PathVariable("name") String name,
             @PathVariable("admdivcode") String admdivcode
     ) {
-        Map<String, String> queryMap = new HashMap<String, String>(){{
+        Map<String, String> queryMap = new HashMap<String, String>(16){{
             put("name", name);
             put("admdivcode", admdivcode);
         }};
@@ -76,7 +74,7 @@ public class UserController {
                            @PathVariable("admdivcode") String admdivcode,
                            @RequestBody UserDO user) {
 
-        Map updateMap = new HashMap(){{
+        Map updateMap = new HashMap(16){{
             put("name", user.getName());
             put("admdivcode", user.getAdmdivcode());
         }};
@@ -96,7 +94,7 @@ public class UserController {
     public Object deleteUser(@PathVariable("name") String name,
                              @PathVariable("admdivcode") String admdivcode
                              ){
-        Map deleteMap = new HashMap(){{
+        Map deleteMap = new HashMap(16){{
             put("name", name);
             put("admdivcode", admdivcode);
         }};
