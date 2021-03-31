@@ -14,17 +14,19 @@ import org.springframework.context.annotation.Primary;
 import org.springframework.context.annotation.Profile;
 import com.alibaba.druid.spring.boot.autoconfigure.DruidDataSourceBuilder;
 
-
-
 import javax.sql.DataSource;
 
+
+/**
+ * @author zqh
+ */
 @Configuration
 @MapperScan(basePackages = {"com.example.rbac.**.dao"},
         sqlSessionFactoryRef = "ds1-SqlSessionFactory")
 public class Ds1DataSourceConfig {
 
     @Profile({"dev", "prod"})
-    @Bean(name = {"ds1", "datasource1"})
+    @Bean(name = {"ds1"})
     @ConfigurationProperties("spring.datasource.druid.ds1")
     public DataSource dataSourceJdbc() {
         return DruidDataSourceBuilder.create().build();
@@ -33,7 +35,7 @@ public class Ds1DataSourceConfig {
 
     @Primary
     @Bean(name = {"ds1-SqlSessionFactory"})
-    public SqlSessionFactory sqlSessionFactory(@Qualifier("ds1")DataSource dataSource) throws Exception {
+    public SqlSessionFactory sqlSessionFactory(@Qualifier("ds1") DataSource dataSource) throws Exception {
         // MP 全局设置
         GlobalConfig globalConfig = new GlobalConfig();
 

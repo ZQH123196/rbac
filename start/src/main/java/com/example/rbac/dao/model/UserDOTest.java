@@ -1,5 +1,8 @@
 package com.example.rbac.dao.model;
 
+/**
+ * @author zqh
+ */
 public class UserDOTest {
     private Integer userId;
     private String userName;

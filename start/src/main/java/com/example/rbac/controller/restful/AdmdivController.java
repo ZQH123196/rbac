@@ -11,13 +11,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * @author zqh
+ */
 @RestController
-@RequestMapping("/Rbac/restful/role")
+@RequestMapping("/Rbac/restful/admdivController")
 public class AdmdivController {
 
     @Autowired
-    private AdmdivMapper roleMapper;
-
+    private AdmdivMapper admdivMapper;
 
     /**
      * SELECT 查询操作，返回一个 JSON 数组
@@ -26,7 +28,7 @@ public class AdmdivController {
     @GetMapping("/role")
     @ResponseStatus(HttpStatus.OK)
     public Object getAdmdivs() {
-        List<AdmdivDO> roleDOList = roleMapper.selectList(null);
+        List<AdmdivDO> roleDOList = admdivMapper.selectList(null);
 
         return roleDOList;
     }
@@ -46,10 +48,9 @@ public class AdmdivController {
             put("admdivcode", admdivcode);
         }};
 
-        AdmdivDO _role = roleMapper.selectOne(new QueryWrapper<AdmdivDO>().allEq(queryMap));
+        AdmdivDO _role = admdivMapper.selectOne(new QueryWrapper<AdmdivDO>().allEq(queryMap));
         return _role;
     }
-
 
     /**
      * 新增一个用户对象
@@ -58,7 +59,7 @@ public class AdmdivController {
     @PostMapping("/role")
     @ResponseStatus(HttpStatus.CREATED)
     public Object addAdmdiv(@RequestBody AdmdivDO role){
-        int insertNum = roleMapper.insert(role);
+        int insertNum = admdivMapper.insert(role);
         return insertNum;
     }
 
@@ -69,7 +70,7 @@ public class AdmdivController {
     @PutMapping("/role")
     @ResponseStatus(HttpStatus.CREATED)
     public Object editAdmdiv(@RequestBody AdmdivDO role) {
-        int updateNum = roleMapper.updateById(role);
+        int updateNum = admdivMapper.updateById(role);
         return updateNum;
     }
 
@@ -80,7 +81,7 @@ public class AdmdivController {
     @DeleteMapping("/role/{admdivcode}")
     @ResponseStatus(HttpStatus.NO_CONTENT)
     public Object deleteAdmdiv(@PathVariable("admdivcode") String admdivcode){
-        int deleteNum = roleMapper.deleteById(admdivcode);
+        int deleteNum = admdivMapper.deleteById(admdivcode);
         return  deleteNum;
     }
 

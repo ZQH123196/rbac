@@ -10,7 +10,8 @@ import java.util.List;
 /**
  * RESTful API 风格示例 对资源 user 进行操作
  * 本示例没有使用数据库，也没有使用 service 类来辅助完成，所有操作在本类中完成
- * */
+ *
+ * @author zqh*/
 @RestController
 @RequestMapping("/api/user")
 public class TestUserController {

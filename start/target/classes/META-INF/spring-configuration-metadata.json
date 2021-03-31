@@ -1,0 +1,12 @@
+{
+  "groups": [
+    {
+      "name": "spring.datasource.druid.ds1",
+      "type": "javax.sql.DataSource",
+      "sourceType": "com.example.rbac.configuration.Ds1DataSourceConfig",
+      "sourceMethod": "dataSourceJdbc()"
+    }
+  ],
+  "properties": [],
+  "hints": []
+}

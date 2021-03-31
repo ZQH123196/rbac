@@ -14,7 +14,7 @@ spring:
 
 logging:
   level:
-    com: "debug"
+    com.example: "debug"
 
 
 
