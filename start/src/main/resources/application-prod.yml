@@ -1,0 +1,28 @@
+
+
+
+debug: true
+
+spring:
+  datasource:
+    druid:
+      ds1:
+        url: "jdbc:mysql://192.168.56.10:3306/rbac?useUnicode=true&serverTimezone=Asia/Shanghai&useSSL=false&characterEncoding=utf8"
+        username: "root"
+        password: "root"
+        driverClassName: "com.mysql.cj.jdbc.Driver"
+
+logging:
+  level:
+    com.example: "debug"
+
+
+
+
+management:
+  endpoint:
+    shutdown:
+      enabled: true
+
+
+
