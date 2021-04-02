@@ -1,0 +1,11 @@
+
+
+# DataSource Config 2.4 before
+spring:
+  profiles:
+    active: dev
+
+#spring:
+#  config:
+#    activate:
+#      on-profile: dev
