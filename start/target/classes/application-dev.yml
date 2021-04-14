@@ -17,12 +17,6 @@ logging:
     com.example: "debug"
 
 
-
-
-
-
-
-
 management:
   endpoints:
     web:

@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @author zqh
  */
 @SpringBootApplication
-//@ComponentScan(basePackages = {"com.example.rbac.**"})
+@ComponentScan(basePackages = {"com.example.sftp.**"})
 public class StartApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {
