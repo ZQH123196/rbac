@@ -1,4 +1,4 @@
-package com.example.rbac;
+package com.example;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,7 +10,7 @@ import org.springframework.context.annotation.ComponentScan;
  * @author zqh
  */
 @SpringBootApplication
-@ComponentScan(basePackages = {"com.example.sftp.**"})
+@ComponentScan(basePackages = {"com.example.**", "com.example.sftp.**"})
 public class StartApplication extends SpringBootServletInitializer {
 
     public static void main(String[] args) {

@@ -4,6 +4,7 @@ import cn.hutool.json.JSONArray;
 import cn.hutool.json.JSONObject;
 import org.springframework.beans.factory.BeanFactoryUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,6 +20,7 @@ import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandl
 import javax.servlet.http.HttpServletRequest;
 import java.util.Map;
 
+@Profile({"dev", "test"})
 @Controller
 @RequestMapping("/manager")
 public class ShowAllMappingInfoController {
