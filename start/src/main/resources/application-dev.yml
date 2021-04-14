@@ -10,7 +10,8 @@ spring:
         url: "jdbc:mysql://192.168.56.10:3306/rbac?useUnicode=true&serverTimezone=Asia/Shanghai&useSSL=false&characterEncoding=utf8"
         username: "root"
         password: "root"
-        driverClassName: "com.mysql.cj.jdbc.Driver"
+        driverClassName: com.mysql.cj.jdbc.Driver
+        driver-class-name: com.mysql.cj.jdbc.Driver
 
 logging:
   level:
