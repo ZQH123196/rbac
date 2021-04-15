@@ -12,6 +12,7 @@ import net.schmizz.sshj.sftp.SFTPClient;
 import net.schmizz.sshj.transport.TransportException;
 import net.schmizz.sshj.userauth.UserAuthException;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
@@ -23,11 +24,14 @@ public class GetFileLayer {
 //        log.debug("jsonObject={}", jsonObject.toJSONString(2));
 
 
-        String remoteFilePath = "/sftp/ScreenOff .bat";
-        String localFilePath = "C:\\Users\\zqh\\Downloads\\downfile";
+        String remoteFilePath = "/sftp/sshd_config";
+        String templateDir = "D:\\";
+        String localFilePath = templateDir + File.separator + remoteFilePath.substring(remoteFilePath.lastIndexOf("/")+1);
         downFile("localhost", 2222, "sftpadmin", "1231", localFilePath, remoteFilePath);
 
     }
+
+
 
     // 覆盖本地文件
     public static boolean downFile(String HOST, Integer PORT, String UserName, String Password, String localFilePath, String remoteFilePath) throws IOException {

@@ -1,6 +1,6 @@
 
 
-# DataSource Config 2.4 before
+# DataSource config 2.4 before
 spring:
   profiles:
     active: dev
