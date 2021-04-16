@@ -3,6 +3,9 @@
 
 debug: true
 
+server:
+  port: 9000
+
 spring:
   datasource:
     druid:
@@ -29,8 +32,12 @@ management:
       enabled: true
 
 
-
-
+sftp:
+  host: "localhost"
+  port: 2222
+  username: "sftpadmin"
+  password: "1231"
+  templateDir: "D:\\"
 
 
 

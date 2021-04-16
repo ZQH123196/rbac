@@ -11,30 +11,21 @@ import net.schmizz.sshj.sftp.RemoteResourceInfo;
 import net.schmizz.sshj.sftp.SFTPClient;
 import net.schmizz.sshj.transport.TransportException;
 import net.schmizz.sshj.userauth.UserAuthException;
+import org.springframework.beans.factory.annotation.Value;
 
 import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
 @Slf4j
-public class GetFileLayer {
-
-    public static void main(String[] args) throws IOException {
-//        JSONObject jsonObject = getLayer("localhost", 2222, "sftpadmin", "1231");
-//        log.debug("jsonObject={}", jsonObject.toJSONString(2));
+public class SftpTools {
 
 
-        String remoteFilePath = "/sftp/sshd_config";
-        String templateDir = "D:\\";
-        String localFilePath = templateDir + File.separator + remoteFilePath.substring(remoteFilePath.lastIndexOf("/")+1);
-        downFile("localhost", 2222, "sftpadmin", "1231", localFilePath, remoteFilePath);
-
-    }
-
+    private static String startSearchDir = "/";
 
 
     // 覆盖本地文件
-    public static boolean downFile(String HOST, Integer PORT, String UserName, String Password, String localFilePath, String remoteFilePath) throws IOException {
+    public static void downFile(String HOST, Integer PORT, String UserName, String Password, String localFilePath, String remoteFilePath) throws IOException {
         SSHClient ssh = new SSHClient();
         ssh.loadKnownHosts();
         try {
@@ -70,10 +61,10 @@ public class GetFileLayer {
         } finally {
             ssh.disconnect();
         }
-        return false;
     }
 
     public static JSONObject getLayer(String HOST, Integer PORT, String UserName, String Password) throws IOException {
+
         SSHClient ssh = new SSHClient();
         ssh.loadKnownHosts();
         try {
@@ -103,8 +94,8 @@ public class GetFileLayer {
             try {
                 // 普通文件 REGULAR
                 // 文件夹 DIRECTORY
-                List<RemoteResourceInfo> remoteResourceInfos = sftp.ls("/sftp/");
-                jsonObject = JSONUtil.parseObj(SearchTool.deepSearch(sftp, remoteResourceInfos, "/sftp"));
+                List<RemoteResourceInfo> remoteResourceInfos = sftp.ls(startSearchDir);
+                jsonObject = JSONUtil.parseObj(SearchTool.deepSearch(sftp, remoteResourceInfos, startSearchDir));
 
             } finally {
                 sftp.close();
